@@ -1,0 +1,31 @@
+<div class="container">
+  <article>
+    <div class="card">
+      <h2 class="card-header text-center">
+        Products
+      </h2>
+      <div class="alert alert-danger">
+        <p *ngFor="let error of formErrors">
+          {{ error }}
+        </p>
+      </div>
+    </div>
+  </article>
+
+  <article *ngFor="let prodct of products">
+    <!-- <div class="card">
+      <div class="card-body">
+
+      </div>
+    </div> -->
+
+    <div class="col-md-2 column productbox">
+        <div class="producttitle">{{product.product_name}}</div>
+        <p>{{product.description}}</p>
+        <p>{{product.rating}}</p>
+        <div class="productprice"><div class="pull-right"><a href="#" class="btn btn-danger btn-sm" role="button">BUY</a></div><div class="pricetext">£{{product.price}}</div></div>
+    </div>
+
+
+  </article>
+</div>

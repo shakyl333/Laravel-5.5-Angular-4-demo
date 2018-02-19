@@ -1,0 +1,35 @@
+<div class="container">
+  <form [formGroup]="bookForm" (ngSubmit)="addbook()" class="form-signin" novalidate
+        [class.was-validated]="bookForm.invalid && (bookForm.dirty || bookForm.touched)">
+    <h2 class="form-signin-heading text-center">Add Book</h2>
+
+    <div class="alert alert-danger" *ngIf="dataInvalid">
+      <p *ngFor="let error of formErrors">{{ error }}</p>
+    </div>
+    <div class="form-group">
+      <label for="author" class="sr-only">Author</label>
+      <input type="text" formControlName="author" id="author" class="form-control" [class.is-invalid]="dataInvalid"
+             placeholder="Enter Author" required>
+      <div *ngIf="author.hasError('required')" class="invalid-feedback">
+        Author is required.
+      </div>
+    </div>
+
+
+    <div class="form-group">
+      <label for="description" class="sr-only">Description</label>
+      <textarea formControlName="description" id="description" class="form-control"
+             [class.is-invalid]="dataInvalid" placeholder="Enter Description" required></textarea>
+      <div *ngIf="description.hasError('required')" class="invalid-feedback">
+        Description is required.
+      </div>
+      <div *ngIf="description.hasError('maxlength')" class="invalid-feedback">
+        Description must not be more than 300 characters.
+      </div>
+    </div>
+
+
+    <button class="btn btn-lg btn-primary btn-block" type="submit" [disabled]="bookForm.invalid" *ngIf="!formSubmitting">Add</button>
+    <button class="btn btn-lg btn-primary btn-block" type="button" [disabled]="formSubmitting" *ngIf="formSubmitting">Adding...</button>
+  </form>
+</div> <!-- /container -->
