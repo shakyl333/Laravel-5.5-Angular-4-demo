@@ -11,15 +11,13 @@ import {AuthGuardService} from './auth-guard.service';
 import {AuthService} from './auth.service';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import {RegisterComponent} from './register/register.component';
-import { ProductComponent } from './product/product.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     LoginComponent,
     PageNotFoundComponent,
-    RegisterComponent,
-    ProductComponent
+    RegisterComponent
   ],
   imports: [
     BrowserModule,

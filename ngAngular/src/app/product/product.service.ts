@@ -18,7 +18,7 @@ export class ProductService {
     }
    }
 
-   getProduct(): Observable<Product[]>{
+   getProducts(): Observable<Product[]>{
     const url = `${this.url}/api/product`;
     return this.http.get(url,{headers: new HttpHeaders({Authorization:'Bearer '+ this.token})}).map(res =>res as Product[]);
    }
