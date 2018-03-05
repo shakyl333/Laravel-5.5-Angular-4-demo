@@ -51,7 +51,6 @@ export class AuthService {
     }).subscribe(res => {
       this.isLoggedIn = false;
       localStorage.clear();
-      console.log(res);
     });
   }
 

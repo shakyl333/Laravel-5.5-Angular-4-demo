@@ -19,15 +19,18 @@ export class AddbookComponent implements OnInit {
   formSubmitting = false;
 
   constructor(public bookService: BookService, public router: Router, private fb: FormBuilder) {
-
+    this.createForm();
   }
 
-
-  ngOnInit() {
+  createForm(){
     this.bookForm = this.fb.group({
       author: ['', Validators.required],
       description: ['', [Validators.required, Validators.maxLength(300)]]
     });
+  }
+
+  ngOnInit() {
+    
   }
 
   get author() {
@@ -46,7 +49,7 @@ export class AddbookComponent implements OnInit {
         this.books = data;
         // Get the redirect URL from our auth service
         // If no redirect has been set, use the default
-        const redirect = '../book';
+        const redirect = 'admin/book';
         // Redirect the user
         this.router.navigate([redirect]);
     }, (err: HttpErrorResponse) => {

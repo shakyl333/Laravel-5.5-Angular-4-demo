@@ -22,9 +22,11 @@ export class ProductComponent implements OnInit {
       .subscribe(data => {
         this.products = data;
       }, (err: HttpErrorResponse) => {
+        
           this.dataInvalid = true;
           this.formSubmitting = false;
           if(err.error instanceof Error){
+            console.log("haseoor");
             this.formErrors.push(err.error.message);
           } else {
               const errors = err.error;

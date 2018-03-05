@@ -27,7 +27,7 @@ export class BookService {
   }
 
   addBook(data:any): Observable<any> {
-    const url = `${this.url}/api/addbook`;
+    const url = `${this.url}/api/book`;
     return this.http.post(url,JSON.stringify(data),{
       headers: new HttpHeaders({Authorization: 'Bearer ' + this.token})
     }).map(res => res as Book[]);

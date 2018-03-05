@@ -5,7 +5,7 @@ import {AdminDashboardComponent} from './admin-dashboard/admin-dashboard.compone
 import {AuthGuardService} from '../auth-guard.service';
 import {BookComponent} from '../book/book.component';
 import {ProductComponent} from '../product/product.component';
-// import {AddbookComponent} from '../book/addbook.component';
+import {AddbookComponent} from '../book/addbook.component';
 
 const adminRoutes: Routes = [
   {
@@ -19,7 +19,7 @@ const adminRoutes: Routes = [
         children: [
           {path: 'book', component: BookComponent},
           {path: 'product', component: ProductComponent},
-          // {path: 'addbook', component: AddbookComponent},
+          {path: 'addbook', component: AddbookComponent},
           {path: '', component: AdminDashboardComponent}
         ],
       }

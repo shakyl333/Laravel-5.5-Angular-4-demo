@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use App\Book;
 use Illuminate\Http\Request;
+use Validator;
+use Illuminate\Foundation\Validation\ValidatesRequests;
 
 class BookController extends Controller
 {
@@ -37,17 +39,26 @@ class BookController extends Controller
      */
     public function store(Request $request)
     {
-        $book = $request->validate([
-            'author' => 'required',
-            'description' => 'required'
-        ]);
 
-        $books = Book::create($book);
+        $getrequest = file_get_contents('php://input');
+        // $getrequest = $request->getContent();
+        // dd($getrequest);
+        $ii = json_decode($getrequest, true);
+       
+        $book = $ii;
 
-        $allBooks = Book::all();
-
-
-        return response()->json($allBooks);
+        $validator = Validator::make($ii, [
+                        'author' => 'required',
+                        'description' => 'required',
+                    ]);
+        if($validator->fails()){
+            $allBooks = Book::all();
+            return response()->json($allBooks);
+        }else{
+            $books = Book::create($book);
+            $allBooks = Book::all();
+            return response()->json($allBooks);
+        }
     }
 
     /**
