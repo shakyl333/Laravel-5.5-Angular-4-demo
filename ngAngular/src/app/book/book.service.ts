@@ -15,7 +15,6 @@ export class BookService {
   constructor(private http: HttpClient) {
     if (this.item != null) {
       this.token = this.item.token;
-      console.log(this.token);
     }
   }
 

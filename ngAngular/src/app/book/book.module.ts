@@ -3,12 +3,14 @@ import { CommonModule } from '@angular/common';
 import {BookComponent} from './book.component';
 import {AddbookComponent} from './addbook.component';
 import {BookService} from './book.service';
-import { ReactiveFormsModule } from '@angular/forms'; 
+import { ReactiveFormsModule } from '@angular/forms';
+import {BookRoutingModule} from './book-routing.module';
 
 @NgModule({
   imports: [
     CommonModule,
-    ReactiveFormsModule
+    ReactiveFormsModule,
+    BookRoutingModule
   ],
   declarations: [
     BookComponent,
