@@ -11,6 +11,7 @@ import {HttpErrorResponse} from '@angular/common/http';
 })
 export class BookComponent implements OnInit {
   books: Book[] = [];
+  toggleFlag:boolean = false;
   dataInvalid = false;
   formErrors = [];
   formSubmitting = false;
@@ -21,6 +22,7 @@ export class BookComponent implements OnInit {
   ngOnInit() {
     this.bookService.getBooks()
       .subscribe(data => {
+        console.log('getbooks');
         this.books = data;
       }, (err: HttpErrorResponse) => {
         this.dataInvalid = true;
@@ -49,6 +51,11 @@ export class BookComponent implements OnInit {
           }
         }
       });
+  }
+
+  addButton(){
+    console.log(this.toggleFlag);
+    this.toggleFlag = !this.toggleFlag;
   }
 
 }

@@ -47,6 +47,7 @@ export class AddbookComponent implements OnInit {
     this.bookService.addBook(this.bookForm.value).subscribe((data) => {
         this.formSubmitting = false;
         this.books = data;
+        console.log('addbooks');
         // Get the redirect URL from our auth service
         // If no redirect has been set, use the default
         const redirect = 'admin/book';

@@ -1,7 +1,10 @@
 <div class="container">
-    <button class="btn btn-outline-success" routerLink="../addbook" routerLinkActive="active">Add Book</button>
-    <!-- <app-addbook></app-addbook> -->
-    <router-outlet></router-outlet>
+    <!-- <button class="btn btn-outline-success" routerLink="../addbook" routerLinkActive="active">Add Book</button> -->
+    <button class="btn btn-outline-success" (click)="addButton()">Add Book</button>
+    <div *ngIf="toggleFlag">
+      <app-addbook></app-addbook>
+    </div>
+      <!-- <router-outlet></router-outlet> -->
   <article>
     <div class="card">
       <h2 class="card-header text-center">

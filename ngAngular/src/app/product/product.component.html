@@ -11,21 +11,29 @@
       </div>
     </div>
   </article>
-  <article *ngFor="let product of products">
-    <!-- <div class="card">
-      <div class="card-body">
+  <div class="row">
+    <article class="col-md-4"  *ngFor="let product of products">
+      <!-- <div class="card">
+        <div class="card-body">
 
+        </div>
+      </div> -->
+      
+      <div class="mt-3 mb-3">
+          <div class="col-md-12">
+          <div class="font-weight-bold">{{product.product_name}}</div>
+          <p>{{product.description}}</p>
+          <p>{{product.rating}}</p>
+          <div class="pt-2 pb-2 border-top border-bottom">
+            <div class="mt-1">
+              <span href="#" class="btn btn-primary btn-sm float-left" role="button">BUY</span><span class="float-right pricetext">£{{product.price}}</span>
+              <div class="clearfix"></div>
+            </div>
+          </div>  
+          </div>
       </div>
-    </div> -->
-    
-    <div class="col-md-2 productbox">
-        <div class="producttitle">{{product.product_name}}</div>
-        <p>{{product.description}}</p>
-        <p>{{product.rating}}</p>
-        <div class="productprice"><div class="pull-right"><span href="#" class="btn btn-danger btn-sm" role="button">BUY</span></div><div class="pricetext">£{{product.price}}</div></div>
-    </div>
-    
+      
 
-
-  </article>
+    </article>
+  </div>
 </div>
