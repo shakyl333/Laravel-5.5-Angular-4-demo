@@ -1,3 +1,7 @@
 /nbproject
 .idea/
 ngAngular/node_modules/
+package-lock.json
+ngAngular/package-lock.json
+ngAngular/package.json
+laravel-api/package.json
